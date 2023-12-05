@@ -24,9 +24,10 @@ def evaluate_dh(par):
   res = f"Response for : {par['title']}\n"
   res = res + f"Input parameters: \n"
   res = res + f"T0 = {par['T0']} [K] \n"
-  res = res + f"L1 ="
+  #res = res + f"L1 ="
   for l in par['L']:
-   res = + {par['L'][0]}, L2 = {par['L'][1]}, L3 = {par['L'][2]} [m]\n"
+   res = res + "L{i} = {l[0]}" [m]\n"
+  res = res +" [m]\n"
   res = res + f"A1 = {par['A1']}, A2 = {par['A2']}, A3 = {par['A3']} [m2]\n"
   res = res + f"Calculated values ..."
   return res
