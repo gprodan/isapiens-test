@@ -17,3 +17,14 @@ class EntryEdit(EntryEditTemplate):
     """This method is called when a new file is loaded into this FileLoader"""
     self.item['image'] = file
 
+  
+  def editParams_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    editFormNames = {'roexaeea':'RoExAEEAForm','railroad':'RLForm','districtheating':'DHForm','waterpumping':'WPForm'}
+    name = self.category_box.selected_value
+    print(f"Category {name['name']} selected")
+    
+    self.add_component(open_form(editFormNames[name['name']]))
+
+
+

@@ -47,7 +47,7 @@ class Homepage(HomepageTemplate):
     """This method is called when the button is clicked"""
     self.text_area_1.text = anvil.server.call('get_ExA_description')
     self.entries_panel.items = anvil.server.call('get_ExA_entries')
-    self.refresh_entries()
+  
 
   def selectRL_click(self, **event_args):
     """This method is called when the button is clicked"""

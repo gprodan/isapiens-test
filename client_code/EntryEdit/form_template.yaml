@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"LKKCYX":20,"PJCXQE":35,"SREJIZ":5,"ALJWQH":20,"XFPVRK":40,"DJWIVL":20,"LEWIHF":40}'}
 components:
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
@@ -17,24 +17,11 @@ components:
   - {property: text, code: 'self.item[''title'']', writeback: true}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: 'Content:', font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: false, underline: false,
-    icon: ''}
-  name: label_2
-  layout_properties: {grid_position: 'ESBUON,LKKCYX'}
-- type: TextArea
-  properties: {}
-  name: content_box
-  layout_properties: {grid_position: 'ESBUON,PJCXQE'}
-  data_bindings:
-  - {property: text, code: 'self.item[''content'']', writeback: true}
-- type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: 'Category:', font_size: null, font: '', spacing_above: small, icon_align: left,
     spacing_below: small, italic: false, background: '', bold: false, underline: false,
     icon: ''}
   name: label_3
-  layout_properties: {grid_position: 'DNACOW,JIWHYD'}
+  layout_properties: {grid_position: 'DWVMKJ,ALJWQH'}
 - type: DropDown
   properties:
     role: null
@@ -56,11 +43,30 @@ components:
     underline: false
     include_placeholder: true
   name: category_box
-  layout_properties: {grid_position: 'DNACOW,LRIDUL'}
+  layout_properties: {grid_position: 'DWVMKJ,XFPVRK'}
   data_bindings:
   - {property: selected_value, code: 'self.item[''category'']', writeback: true}
-- type: FileLoader
+  event_bindings: {change: category_box_change}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Content:', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_2
+  layout_properties: {grid_position: 'ESBUON,LKKCYX'}
+- type: TextArea
   properties: {}
+  name: content_box
+  layout_properties: {grid_position: 'ESBUON,PJCXQE'}
+  data_bindings:
+  - {property: text, code: 'self.item[''content'']', writeback: true}
+- name: editParams
+  properties: {text: Edit, role: tonal-button}
+  type: Button
+  layout_properties: {grid_position: 'ESBUON,SREJIZ'}
+  event_bindings: {click: editParams_click}
+- type: FileLoader
+  properties: {enabled: false}
   name: image_uploader
   layout_properties: {grid_position: 'IIFDXJ,PLZGCD'}
   event_bindings: {change: image_uploader_change}
