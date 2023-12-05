@@ -13,11 +13,7 @@ class EntryEdit(EntryEditTemplate):
     self.categories = [(cat['name'], cat) for cat in app_tables.categories.search()]
     self.category_box.items = self.categories
 
-  def image_uploader_change(self, file, **event_args):
-    """This method is called when a new file is loaded into this FileLoader"""
-    self.item['image'] = file
-
-  
+ 
   def editParams_click(self, **event_args):
     """This method is called when the button is clicked"""
     editFormNames = {'roexaeea':'RoExAEEAForm','railroad':'RLForm','districtheating':'DHForm','waterpumping':'WPForm'}
@@ -33,7 +29,6 @@ class EntryEdit(EntryEditTemplate):
                      'districtheating':'calculate_districtheating',
                      'waterpumping':'calculate_waterpumping'}
     name = self.category_box.selected_value
-    print(f"{type(str(editFormNames[name['name']]))}, {type(editFormNames[name['name']])}")
     res = anvil.server.call(str(editFormNames[name['name']]), params=self.content_box.text)
     self.results.text = res
 

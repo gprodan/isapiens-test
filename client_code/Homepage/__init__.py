@@ -5,6 +5,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..EntryEdit import EntryEdit
+from ..DHForm import DHForm
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
@@ -12,26 +13,37 @@ class Homepage(HomepageTemplate):
     self.init_components(**properties)
     # Any code you write here will run when the form opens.
     self.text_area_1.text="iSapiens Apps"
+    self.job = None
     self.refresh_entries()
       # Set an event handler on the RepeatingPanel (our 'entries_panel')
     self.entries_panel.set_event_handler('x-delete-entry', self.delete_entry)
-    self.job = ""
+    
 
   def add_entry_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     # Initialise an empty dictionary to store the user inputs
-    if self.job is "DistrictHeating":
-
-      else:
     new_entry = {}
-    # Open an alert displaying the 'EntryEdit' Form
-    save_clicked = alert(
-      content=EntryEdit(item=new_entry),
-      title="Add Entry",
-      large=True,
-      buttons=[("Save", True), ("Cancel", False)]
-    )
+    if self.job == "DistrictHeating":
+      
+      # Open an alert displaying the 'DHForm' Form
+      save_clicked = alert(
+        content=DHForm(item=new_entry),
+        title="Add Entry",
+        large=True,
+        buttons=[("Save", True), ("Cancel", False)]
+      )
     # If the alert returned 'True', the save button was clicked.
+    
+    else:
+      new_entry = {}
+      # Open an alert displaying the 'EntryEdit' Form
+      save_clicked = alert(
+        content=EntryEdit(item=new_entry),
+        title="Add Entry",
+        large=True,
+        buttons=[("Save", True), ("Cancel", False)]
+      )
+      # If the alert returned 'True', the save button was clicked.
     if save_clicked:
       anvil.server.call('add_entry', new_entry)
       self.refresh_entries()

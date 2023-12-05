@@ -59,6 +59,12 @@ components:
     layout_properties: {grid_position: 'MHWRRD,XGUAPS HJGZPT,FXYVIH'}
     data_bindings:
     - {property: text, code: 'self.item[''content'']'}
+  - name: results
+    properties: {}
+    type: TextArea
+    layout_properties: {grid_position: 'MHWRRD,XGUAPS FKKKBV,PCQNHI'}
+    data_bindings:
+    - {property: text, code: 'self.item[''result'']', writeback: false}
   - type: Spacer
     properties: {height: 32}
     name: spacer_2

@@ -11,6 +11,9 @@ class DHForm(DHFormTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+    # self.categories = app_tables.categories.get(name='districtheating')
+    self.item['category'] = app_tables.categories.get(name='districtheating')
+     
 
   def viewResult_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -25,6 +28,6 @@ class DHForm(DHFormTemplate):
       pr['L'] = self.txtLengths.text if self.txtLengths else [1000.0, 2000.0, 3000.0]
       pr['A'] = self.txtUsersArea.text if self.txtUsersArea else [3000.0, 2000.0, 12000.0]
       params = pr
-
+    self.item['content'] = params
     res = anvil.server.call('calculate_districtheating', params=params)
     self.results.text = res
