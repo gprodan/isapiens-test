@@ -11,6 +11,7 @@ class Homepage(HomepageTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     # Any code you write here will run when the form opens.
+    self.text_area_1.text="iSapiens Apps"
     self.refresh_entries()
       # Set an event handler on the RepeatingPanel (our 'entries_panel')
     self.entries_panel.set_event_handler('x-delete-entry', self.delete_entry)
@@ -41,4 +42,22 @@ class Homepage(HomepageTemplate):
     anvil.server.call('delete_entry', entry)
     # Refresh entry to remove the deleted entry from the Homepage
     self.refresh_entries()
+
+  def selectRoExAEEA_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.text_area_1.text = anvil.server.call('get_ExA_description')
+    self.entries_panel.items = anvil.server.call('get_ExA_entries')
+    self.refresh_entries()
+
+  def selectRL_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.entries_panel.items = anvil.server.call('get_RL_entries')
+
+  def selectDH_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.entries_panel.items = anvil.server.call('get_DH_entries')
+
+  def selectWP_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.entries_panel.items = anvil.server.call('get_WP_entries')
 

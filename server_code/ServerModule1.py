@@ -20,6 +20,37 @@ def get_entries():
   )
 
 @anvil.server.callable
+def get_ExA_description():
+  # Get a list of entries from the Data Table, sorted by 'created' column, in descending order
+  return app_tables.categories.get(name='roexaeea')['description']
+
+@anvil.server.callable
+def get_ExA_entries():
+  # Get a list of roexaeea simulations 
+  return app_tables.entries.search(
+    category=app_tables.categories.get(name='roexaeea')
+  )
+
+@anvil.server.callable
+def get_DH_entries():
+  return app_tables.entries.search(
+    category=app_tables.categories.get(name='districtheating')
+  )
+
+@anvil.server.callable
+def get_WP_entries():
+  return app_tables.entries.search(
+    category=app_tables.categories.get(name='waterpumping')
+  )
+
+@anvil.server.callable
+def get_RL_entries():
+  return app_tables.entries.search(
+    category=app_tables.categories.get(name='railroad')
+  )
+
+  
+@anvil.server.callable
 def update_entry(entry, entry_dict):
   # check that the entry given is really a row in the ‘entries’ table
   if app_tables.entries.has_row(entry):

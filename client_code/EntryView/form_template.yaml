@@ -53,14 +53,6 @@ components:
       name: delete_entry_button
       layout_properties: {}
       event_bindings: {click: delete_entry_button_click}
-  - type: Image
-    properties: {role: null, vertical_align: center, height: '200', tooltip: '', border: '',
-      foreground: '', visible: true, display_mode: fill_width, spacing_above: small,
-      source: '', spacing_below: small, background: '', horizontal_align: center}
-    name: image_1
-    layout_properties: {grid_position: 'MHWRRD,XGUAPS HJGZPT,YQCVDA'}
-    data_bindings:
-    - {property: source, code: 'self.item[''image'']'}
   - type: Label
     properties: {}
     name: content_label

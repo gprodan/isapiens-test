@@ -24,6 +24,9 @@ db_schema:
     - name: name
       admin_ui: {width: 200}
       type: string
+    - name: description
+      admin_ui: {width: 200, order: 1}
+      type: string
   entries:
     title: Entries
     client: search
@@ -35,9 +38,6 @@ db_schema:
     - name: content
       admin_ui: {width: 200}
       type: string
-    - name: image
-      admin_ui: {width: 200}
-      type: media
     - name: created
       admin_ui: {width: 200}
       type: datetime
@@ -48,4 +48,7 @@ db_schema:
       admin_ui: {width: 200}
       type: link_single
       target: categories
+    - name: result
+      admin_ui: {width: 200, order: 6}
+      type: string
 renamed: true
