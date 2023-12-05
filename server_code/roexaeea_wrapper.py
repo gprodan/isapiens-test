@@ -15,19 +15,24 @@ def sections():
 def title():
    return 'Romania ExA & EEA'
 
-
-
 @anvil.server.callable
-def calculate_roexeeea(params):
-   print(f"Params: {params}")
+def calculate_roexaeea(params):
+   #print(f"Params: {params}")
    par = json.loads(params)
-   x = float(par['x'])
-   y = float(par['y'])
-   return f"Evaluated y({x}) = {x*x-3*x+2}"
-
-
   
+   return evaluate_dh(par)
 
+
+def evaluate_dh(par):
+  res = f"Response for : {par['title']}\n"
+  res = res + f"Input parameters: \n"
+  res = res + f"Nw = {par['Nw']} \n"
+  res = res + f"wkhrs = {par['wkhrs']} \n"
+  res = res + f"exchg = {par['exchg']} \n"
+  res = res + f"s = {float(par['s'])*12*float(par['exchg'])} \n"
+  res = res + f"M2 = {par['M2']} \n"
+  res = res + f"Calculated values ..."
+  return res
 
 
 

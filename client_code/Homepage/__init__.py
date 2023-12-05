@@ -7,7 +7,7 @@ from anvil.tables import app_tables
 from ..EntryEdit import EntryEdit
 from ..DHForm import DHForm
 from ..RLForm import RLForm
-
+from ..RoExForm import RoExForm
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
@@ -40,6 +40,15 @@ class Homepage(HomepageTemplate):
       # Open an alert displaying the 'DHForm' Form
       save_clicked = alert(
         content=RLForm(item=new_entry),
+        title="Add Entry",
+        large=True,
+        buttons=[("Save", True), ("Cancel", False)]
+      )
+    elif self.job == "RoExAEEA":
+      
+      # Open an alert displaying the 'DHForm' Form
+      save_clicked = alert(
+        content=RoExForm(item=new_entry),
         title="Add Entry",
         large=True,
         buttons=[("Save", True), ("Cancel", False)]

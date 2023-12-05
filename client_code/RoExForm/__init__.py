@@ -13,7 +13,7 @@ class RoExForm(RoExFormTemplate):
 
     # Any code you write here will run before the form opens.
     # self.categories = app_tables.categories.get(name='districtheating')
-    self.item['category'] = app_tables.categories.get(name='districtheating')
+    self.item['category'] = app_tables.categories.get(name='roexaeea')
 
 
   def viewResult_click(self, **event_args):
@@ -27,12 +27,14 @@ class RoExForm(RoExFormTemplate):
       params = self.txtFormated.text
     else:
       pr['title'] = self.txtTitle.text
-      pr['T0'] = float(self.txtTempAmb.text if self.txtTempAmb.text else 300.0)
-      pr['L'] = self.txtLengths.text if self.txtLengths else [1000.0, 2000.0, 3000.0]
-      pr['A'] = self.txtUsersArea.text if self.txtUsersArea else [3000.0, 2000.0, 12000.0]
+      pr['Nw'] = float(self.txtWrkPop.text if self.txtWrkPop.text else 300.0)
+      pr['wkhrs'] = float(self.txtWrkHours.text if self.txtWrkHours.text else 1783.0)
+      pr['exchg'] = float(self.txtExchange.text if self.txtExchange.text else 0.2)
+      pr['s'] = float(self.txtSalary.text if self.txtSalary.text else 4000.0)
+      pr['M2'] = float(self.txtM2Coef.text if self.txtM2Coef.text else 422691000000.0)
       params = json.dumps(pr, indent = 4)
     self.item['title'] = self.txtTitle.text
     self.item['content'] = params
-    res = anvil.server.call('calculate_districtheating', params=params)
+    res = anvil.server.call('calculate_roexaeea', params=params)
     self.item['result'] = res
     self.results.text = res

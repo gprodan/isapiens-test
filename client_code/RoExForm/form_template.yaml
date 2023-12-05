@@ -3,7 +3,7 @@ container:
   properties: {col_widths: '{"YPKSJT":45}'}
 components:
 - name: label_6
-  properties: {align: center, text: 'Romania ExA ', bold: true, role: title}
+  properties: {align: center, text: Romania ExA & EEA, bold: true, role: title}
   type: Label
   layout_properties: {grid_position: 'EUQKUQ,YPKSJT'}
 - name: label_4
@@ -20,40 +20,56 @@ components:
   layout_properties: {grid_position: 'DSHDIA,WLGHJI'}
   components:
   - name: label_1
-    properties: {text: 'T0 [K]'}
+    properties: {text: Working population}
     type: Label
-    layout_properties: {grid_position: 'VMOIEJ,PUVJCF'}
-  - name: txtTempAmb
-    properties: {placeholder: insert ambient temperature in K}
+    layout_properties: {grid_position: 'VMOIEJ,CEQZUH'}
+  - name: txtWrkPop
+    properties: {placeholder: Working population (ex. 5000000)}
     type: TextBox
     layout_properties: {grid_position: 'VMOIEJ,VUWMYP'}
   - name: label_2
-    properties: {text: 'L [m] (ex. [value1, value2, value3]) '}
+    properties: {text: Working hours}
     type: Label
-    layout_properties: {grid_position: 'ZEBIHD,RUVKJT JAZXQW,KFYLQC'}
-  - name: label_3
-    properties: {text: 'A [m2] (ex. [value1, value2, value3]) '}
-    type: Label
-    layout_properties: {grid_position: 'ZEBIHD,RUVKJT JTGKLV,SXOGGC'}
-  - name: txtLengths
-    properties: {placeholder: insert length of pipes for PTs}
+    layout_properties: {grid_position: 'ZEBIHD,CWJSVB TSYGZP,TSWMHX'}
+  - name: txtWrkHours
+    properties: {placeholder: average working hours/yr (ex. 1783)}
     type: TextBox
     layout_properties: {grid_position: 'ZEBIHD,CWJSVB TSYGZP,CCITKA'}
-  - name: txtUsersArea
-    properties: {text: insert users area}
+  - name: label_3
+    properties: {text: Exchange rate EUR/RON}
+    type: Label
+    layout_properties: {grid_position: 'ZEBIHD,CWJSVB QEYFBP,IOKCNR'}
+  - name: txtExchange
+    properties: {text: '', placeholder: exchange rate EUR/RON (ex. 0.2), italic: false}
     type: TextBox
     layout_properties: {grid_position: 'ZEBIHD,CWJSVB QEYFBP,RWPFJJ'}
+  - name: label_7
+    properties: {text: Salary}
+    type: Label
+    layout_properties: {grid_position: 'LXDTPA,HXZTTF'}
+  - name: txtSalary
+    properties: {placeholder: salary EUR (ex. 4000)}
+    type: TextBox
+    layout_properties: {grid_position: 'LXDTPA,PURIGP'}
+  - name: label_8
+    properties: {text: M2 coefficient}
+    type: Label
+    layout_properties: {grid_position: 'TEESYO,HILJCQ'}
+  - name: txtM2Coef
+    properties: {placeholder: M2 (ex. 422691.0), bold: false}
+    type: TextBox
+    layout_properties: {grid_position: 'TEESYO,FHQANO'}
   - name: spacer_1
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'DXHYDI,VNHSDB'}
   - name: label_5
-    properties: {text: 'formated text: (e.g. {"T0":300, "L":[1200,800,2300], "A":[5000,
-        2000,12000]})'}
+    properties: {text: 'formated text:'}
     type: Label
     layout_properties: {grid_position: 'UBKQHV,DXJBKI'}
   - name: txtFormated
-    properties: {placeholder: 'ex.  {"T0":300, "L":[1200,800,2300], "A":[5000, 2000,12000]}'}
+    properties: {placeholder: 'ex. {"title":"simRoExA","Nw":5000000, "wkhrs":1783,
+        "exchg":0.2, "s":4000, "M2":442691000000}'}
     type: TextBox
     layout_properties: {grid_position: 'UBKQHV,OQXEOJ'}
   - name: sendParams
