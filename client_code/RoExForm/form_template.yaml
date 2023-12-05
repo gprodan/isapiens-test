@@ -1,0 +1,76 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"YPKSJT":45}'}
+components:
+- name: label_6
+  properties: {align: center, text: 'Romania ExA ', bold: true, role: title}
+  type: Label
+  layout_properties: {grid_position: 'EUQKUQ,YPKSJT'}
+- name: label_4
+  properties: {text: 'Title '}
+  type: Label
+  layout_properties: {grid_position: 'FENNLS,NDKUPR'}
+- name: txtTitle
+  properties: {placeholder: Simulation title, text: 'self.item[''title'']'}
+  type: TextBox
+  layout_properties: {grid_position: 'FENNLS,IPZFMD'}
+- name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'DSHDIA,WLGHJI'}
+  components:
+  - name: label_1
+    properties: {text: 'T0 [K]'}
+    type: Label
+    layout_properties: {grid_position: 'VMOIEJ,PUVJCF'}
+  - name: txtTempAmb
+    properties: {placeholder: insert ambient temperature in K}
+    type: TextBox
+    layout_properties: {grid_position: 'VMOIEJ,VUWMYP'}
+  - name: label_2
+    properties: {text: 'L [m] (ex. [value1, value2, value3]) '}
+    type: Label
+    layout_properties: {grid_position: 'ZEBIHD,RUVKJT JAZXQW,KFYLQC'}
+  - name: label_3
+    properties: {text: 'A [m2] (ex. [value1, value2, value3]) '}
+    type: Label
+    layout_properties: {grid_position: 'ZEBIHD,RUVKJT JTGKLV,SXOGGC'}
+  - name: txtLengths
+    properties: {placeholder: insert length of pipes for PTs}
+    type: TextBox
+    layout_properties: {grid_position: 'ZEBIHD,CWJSVB TSYGZP,CCITKA'}
+  - name: txtUsersArea
+    properties: {text: insert users area}
+    type: TextBox
+    layout_properties: {grid_position: 'ZEBIHD,CWJSVB QEYFBP,RWPFJJ'}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'DXHYDI,VNHSDB'}
+  - name: label_5
+    properties: {text: 'formated text: (e.g. {"T0":300, "L":[1200,800,2300], "A":[5000,
+        2000,12000]})'}
+    type: Label
+    layout_properties: {grid_position: 'UBKQHV,DXJBKI'}
+  - name: txtFormated
+    properties: {placeholder: 'ex.  {"T0":300, "L":[1200,800,2300], "A":[5000, 2000,12000]}'}
+    type: TextBox
+    layout_properties: {grid_position: 'UBKQHV,OQXEOJ'}
+  - name: sendParams
+    properties: {text: Calculate, role: filled-button}
+    type: Button
+    layout_properties: {grid_position: 'VYDNNM,UZVVAE'}
+    data_bindings: []
+    event_bindings: {click: sendParams_click}
+  - name: viewResult
+    properties: {text: View Results, role: filled-button, enabled: false}
+    type: Button
+    layout_properties: {grid_position: 'VYDNNM,KQZNOY'}
+    event_bindings: {click: viewResult_click}
+  - name: results
+    properties: {}
+    type: TextArea
+    layout_properties: {grid_position: 'YZCOSE,RVTMEK'}
+    data_bindings:
+    - {property: text, code: 'self.item[''result'']', writeback: false}
+is_package: true

@@ -1,56 +1,84 @@
-container: {type: ColumnPanel}
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"YPKSJT":45}'}
 components:
 - name: label_6
-  properties: {align: center, text: Rail Road Parameters, bold: true, role: title}
+  properties: {align: center, text: Rail Line Parameters, bold: true, role: title}
   type: Label
-  layout_properties: {grid_position: 'LQXYLQ,ZHUOSN'}
+  layout_properties: {grid_position: 'EUQKUQ,YPKSJT'}
+- name: label_4
+  properties: {text: 'Title '}
+  type: Label
+  layout_properties: {grid_position: 'FENNLS,NDKUPR'}
+- name: txtTitle
+  properties: {placeholder: Simulation title, text: 'self.item[''title'']'}
+  type: TextBox
+  layout_properties: {grid_position: 'FENNLS,IPZFMD'}
 - name: column_panel_1
   properties: {}
   type: ColumnPanel
   layout_properties: {grid_position: 'DSHDIA,WLGHJI'}
   components:
   - name: label_1
-    properties: {}
+    properties: {text: Fuel cost}
     type: Label
-    layout_properties: {grid_position: 'VMOIEJ,PUVJCF'}
-  - name: text_box_1
-    properties: {}
+    layout_properties: {grid_position: 'VMOIEJ,PCYQYF'}
+  - name: txtFuelCost
+    properties: {placeholder: 'fuel cost [EUR]'}
     type: TextBox
     layout_properties: {grid_position: 'VMOIEJ,VUWMYP'}
   - name: label_2
-    properties: {}
+    properties: {text: Electricity cost}
     type: Label
-    layout_properties: {grid_position: 'ZEBIHD,RUVKJT JAZXQW,KFYLQC'}
+    layout_properties: {grid_position: 'ZEBIHD,RUVKJT'}
+  - name: txtElCost
+    properties: {placeholder: 'electricity cost [EUR]'}
+    type: TextBox
+    layout_properties: {grid_position: 'ZEBIHD,CWJSVB'}
+  - name: label_8
+    properties: {text: Number of tracks}
+    type: Label
+    layout_properties: {grid_position: 'OZWPEY,AOCPPW'}
+  - name: txtNoTracks
+    properties: {placeholder: number of tracks  (ex. 3)}
+    type: TextBox
+    layout_properties: {grid_position: 'OZWPEY,CZNMNH'}
   - name: label_3
-    properties: {}
+    properties: {text: Mload}
     type: Label
-    layout_properties: {grid_position: 'ZEBIHD,RUVKJT JTGKLV,SXOGGC'}
-  - name: text_box_2
-    properties: {}
+    layout_properties: {grid_position: 'DZFZPX,ZYCUWN'}
+  - name: txtMassLoad
+    properties: {text: '', align: left, placeholder: 'maximum load for tracks (ex.
+        [2500.0, 3000.0, 2500.0]) [tons] '}
     type: TextBox
-    layout_properties: {grid_position: 'ZEBIHD,CWJSVB TSYGZP,CCITKA'}
-  - name: text_box_3
-    properties: {}
-    type: TextBox
-    layout_properties: {grid_position: 'ZEBIHD,CWJSVB QEYFBP,RWPFJJ'}
-  - name: label_4
-    properties: {}
+    layout_properties: {grid_position: 'DZFZPX,GBPLSC'}
+  - name: label_9
+    properties: {text: 'Tracks length [km]'}
     type: Label
-    layout_properties: {grid_position: 'SVNCPN,WWOOHB'}
-  - name: text_box_4
-    properties: {}
+    layout_properties: {grid_position: 'JKXGCX,JELZCN'}
+  - name: txtRouteLength
+    properties: {placeholder: 'tracks length (ex. [150.0, 180.0,230.0]) [km]'}
     type: TextBox
-    layout_properties: {grid_position: 'SVNCPN,CPCBVZ'}
+    layout_properties: {grid_position: 'JKXGCX,LLPPRE'}
+  - name: label_7
+    properties: {text: Number of trips}
+    type: Label
+    layout_properties: {grid_position: 'NIWXJG,DQWHLV'}
+  - name: txtNoTrips
+    properties: {placeholder: number of trips (ex. 60) per year on 1-3 and 2-3}
+    type: TextBox
+    layout_properties: {grid_position: 'NIWXJG,RSUUNC'}
   - name: spacer_1
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'DXHYDI,VNHSDB'}
   - name: label_5
-    properties: {}
+    properties: {text: 'formated text: '}
     type: Label
     layout_properties: {grid_position: 'UBKQHV,DXJBKI'}
-  - name: text_box_5
-    properties: {}
+  - name: txtFormated
+    properties: {placeholder: 'ex.  {"title":"simRL","cfuel":1.7, "cel":0.17, "ntrain":3,
+        "mLoad":[25000,3000.0,2500.0], "L":[150.0,180.0,230.0], "ntrips":60}'}
     type: TextBox
     layout_properties: {grid_position: 'UBKQHV,OQXEOJ'}
   - name: sendParams
@@ -58,9 +86,16 @@ components:
     type: Button
     layout_properties: {grid_position: 'VYDNNM,UZVVAE'}
     data_bindings: []
+    event_bindings: {click: sendParams_click}
   - name: viewResult
-    properties: {text: View Results, role: filled-button}
+    properties: {text: View Results, role: filled-button, enabled: false}
     type: Button
     layout_properties: {grid_position: 'VYDNNM,KQZNOY'}
     event_bindings: {click: viewResult_click}
+  - name: results
+    properties: {}
+    type: TextArea
+    layout_properties: {grid_position: 'YZCOSE,RVTMEK'}
+    data_bindings:
+    - {property: text, code: 'self.item[''result'']', writeback: false}
 is_package: true

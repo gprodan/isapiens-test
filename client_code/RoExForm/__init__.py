@@ -1,4 +1,4 @@
-from ._anvil_designer import DHFormTemplate
+from ._anvil_designer import RoExFormTemplate
 from anvil import *
 import anvil.server
 import anvil.tables as tables
@@ -6,7 +6,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import json
 
-class DHForm(DHFormTemplate):
+class RoExForm(RoExFormTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -14,7 +14,7 @@ class DHForm(DHFormTemplate):
     # Any code you write here will run before the form opens.
     # self.categories = app_tables.categories.get(name='districtheating')
     self.item['category'] = app_tables.categories.get(name='districtheating')
-     
+
 
   def viewResult_click(self, **event_args):
     """This method is called when the button is clicked"""

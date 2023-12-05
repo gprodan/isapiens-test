@@ -6,6 +6,8 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..EntryEdit import EntryEdit
 from ..DHForm import DHForm
+from ..RLForm import RLForm
+
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
@@ -33,7 +35,15 @@ class Homepage(HomepageTemplate):
         buttons=[("Save", True), ("Cancel", False)]
       )
     # If the alert returned 'True', the save button was clicked.
-    
+    elif self.job == "RailRoad":
+      
+      # Open an alert displaying the 'DHForm' Form
+      save_clicked = alert(
+        content=RLForm(item=new_entry),
+        title="Add Entry",
+        large=True,
+        buttons=[("Save", True), ("Cancel", False)]
+      )
     else:
       # Open an alert displaying the 'EntryEdit' Form
       save_clicked = alert(
