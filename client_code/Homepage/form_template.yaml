@@ -80,3 +80,4 @@ components:
     properties: {text: Simulations, tooltip: Load simulations}
     type: FileLoader
     layout_properties: {grid_position: 'VGSTVI,GIXECP'}
+    event_bindings: {change: file_loader_2_change}
