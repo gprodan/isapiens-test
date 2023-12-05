@@ -10,7 +10,7 @@ components:
   properties: {text: 'Title '}
   type: Label
   layout_properties: {grid_position: 'FENNLS,NDKUPR'}
-- name: text_box_1
+- name: txtTitle
   properties: {placeholder: Simulation title, text: 'self.item[''title'']'}
   type: TextBox
   layout_properties: {grid_position: 'FENNLS,IPZFMD'}

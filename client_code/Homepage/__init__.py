@@ -35,7 +35,6 @@ class Homepage(HomepageTemplate):
     # If the alert returned 'True', the save button was clicked.
     
     else:
-      new_entry = {}
       # Open an alert displaying the 'EntryEdit' Form
       save_clicked = alert(
         content=EntryEdit(item=new_entry),
