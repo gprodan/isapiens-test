@@ -13,7 +13,7 @@ class WPForm(WPFormTemplate):
 
     # Any code you write here will run before the form opens.
     # self.categories = app_tables.categories.get(name='districtheating')
-    self.item['category'] = app_tables.categories.get(name='districtheating')
+    self.item['category'] = app_tables.categories.get(name='waterpumping')
 
 
   def viewResult_click(self, **event_args):
@@ -28,11 +28,12 @@ class WPForm(WPFormTemplate):
     else:
       pr['title'] = self.txtTitle.text
       pr['T0'] = float(self.txtTempAmb.text if self.txtTempAmb.text else 300.0)
-      pr['L'] = self.txtLengths.text if self.txtLengths.text else [1000.0, 2000.0, 3000.0]
-      pr['A'] = self.txtUsersArea.text if self.txtUsersArea.text else [3000.0, 2000.0, 12000.0]
+      pr['L0'] = self.txtLengths.text if self.txtLengths.text else [500.0,300.0,1000.0]
+      pr['L'] = self.txtLengthsP.text if self.txtLengthsP.text else [200.0,400.0,600.0]
+      pr['m'] = self.txtMassFlow.text if self.txtMassFlow.text else [10.0,15.0,30.0]
       params = json.dumps(pr, indent = 4)
     self.item['title'] = self.txtTitle.text
     self.item['content'] = params
-    res = anvil.server.call('calculate_districtheating', params=params)
+    res = anvil.server.call('calculate_waterpumping', params=params)
     self.item['result'] = res
     self.results.text = res

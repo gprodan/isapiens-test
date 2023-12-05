@@ -7,13 +7,14 @@ services:
 startup: {type: form, module: Homepage}
 package_name: News_App
 allow_embedding: false
-name: Database-backed app
+name: iSapiens
 runtime_options:
   version: 2
   client_version: '3'
   server_version: python3-sandbox
   server_spec: null
   server_spec_disabled: {requirements: '', base: python310-minimal}
+metadata: {title: iSapiens}
 startup_form: null
 db_schema:
   categories:

@@ -8,6 +8,7 @@ from ..EntryEdit import EntryEdit
 from ..DHForm import DHForm
 from ..RLForm import RLForm
 from ..RoExForm import RoExForm
+from ..WPForm import WPForm
 
 class Homepage(HomepageTemplate):
   def __init__(self, **properties):
@@ -49,6 +50,15 @@ class Homepage(HomepageTemplate):
       # Open an alert displaying the 'DHForm' Form
       save_clicked = alert(
         content=RoExForm(item=new_entry),
+        title="Add Entry",
+        large=True,
+        buttons=[("Save", True), ("Cancel", False)]
+      )
+    elif self.job == "WaterPumping":
+      
+      # Open an alert displaying the 'DHForm' Form
+      save_clicked = alert(
+        content=WPForm(item=new_entry),
         title="Add Entry",
         large=True,
         buttons=[("Save", True), ("Cancel", False)]
