@@ -132,13 +132,11 @@ class Homepage(HomepageTemplate):
 
   def file_loader_1_change(self, file, **event_args):
     """This method is called when a new file is loaded into this FileLoader"""
-    for f in file:
-      filedata=f.get_bytes()
-      anvil.server.call('read_categories_from_csv',filedata)
+    filedata=file.get_bytes()
+    anvil.server.call('read_categories_from_csv',filedata)
 
   def file_loader_2_change(self, file, **event_args):
     """This method is called when a new file is loaded into this FileLoader"""
-    for f in file:
-      filedata=f.get_bytes()
-      anvil.server.call('read_entries_from_csv',filedata)
+    filedata=file.get_bytes()
+    anvil.server.call('read_entries_from_csv',filedata)
 
