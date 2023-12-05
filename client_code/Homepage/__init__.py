@@ -15,10 +15,14 @@ class Homepage(HomepageTemplate):
     self.refresh_entries()
       # Set an event handler on the RepeatingPanel (our 'entries_panel')
     self.entries_panel.set_event_handler('x-delete-entry', self.delete_entry)
+    self.job = ""
 
   def add_entry_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     # Initialise an empty dictionary to store the user inputs
+    if self.job is "DistrictHeating":
+
+      else:
     new_entry = {}
     # Open an alert displaying the 'EntryEdit' Form
     save_clicked = alert(
@@ -45,19 +49,40 @@ class Homepage(HomepageTemplate):
 
   def selectRoExAEEA_click(self, **event_args):
     """This method is called when the button is clicked"""
+    for x in [self.selectDH, self.selectRL, self.selectWP]:
+      x.role = ""
+    self.selectRoExAEEA.role = "outlined-button"
     self.text_area_1.text = anvil.server.call('get_ExA_description')
     self.entries_panel.items = anvil.server.call('get_ExA_entries')
+    self.job = "RoExAEEA"
+    self.add_entry_button.enabled = True
+    
   
 
   def selectRL_click(self, **event_args):
     """This method is called when the button is clicked"""
+    for x in [self.selectDH, self.selectRoExAEEA, self.selectWP]:
+      x.role = ""
+    self.selectRL.role = "outlined-button"
     self.entries_panel.items = anvil.server.call('get_RL_entries')
-
+    self.job = "RailRoad"
+    self.add_entry_button.enabled = True
+  
   def selectDH_click(self, **event_args):
     """This method is called when the button is clicked"""
+    for x in [self.selectRL, self.selectRoExAEEA, self.selectWP]:
+      x.role = ""
+    self.selectDH.role = "outlined-button"
     self.entries_panel.items = anvil.server.call('get_DH_entries')
+    self.job = "DistrictHeating"
+    self.add_entry_button.enabled = True
 
   def selectWP_click(self, **event_args):
     """This method is called when the button is clicked"""
+    for x in [self.selectRL, self.selectRoExAEEA, self.selectDH]:
+      x.role = ""
+    self.selectWP.role = "outlined-button"
     self.entries_panel.items = anvil.server.call('get_WP_entries')
+    self.job = "WaterPumping"
+    self.add_entry_button.enabled = True
 

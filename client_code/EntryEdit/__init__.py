@@ -24,7 +24,20 @@ class EntryEdit(EntryEditTemplate):
     name = self.category_box.selected_value
     print(f"Category {name['name']} selected")
     
-    self.add_component(open_form(editFormNames[name['name']]))
+    #self.add_component(open_form(editFormNames[name['name']]))
+
+  def calculate_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    editFormNames = {'roexaeea':'calculate_roexeeea',
+                     'railroad':'calculate_railroad',
+                     'districtheating':'calculate_districtheating',
+                     'waterpumping':'calculate_waterpumping'}
+    name = self.category_box.selected_value
+    print(f"{type(str(editFormNames[name['name']]))}, {type(editFormNames[name['name']])}")
+    res = anvil.server.call(str(editFormNames[name['name']]), params=self.content_box.text)
+    self.results.text = res
+
+
 
 
 

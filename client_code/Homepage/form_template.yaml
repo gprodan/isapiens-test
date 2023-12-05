@@ -13,7 +13,7 @@ components:
     type: TextArea
     layout_properties: {grid_position: 'GBNRFB,OJJIQL'}
   - type: Button
-    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: false,
       foreground: '', visible: true, text: 'Add an Entry
 
         ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: large,
@@ -44,12 +44,12 @@ components:
   layout_properties: {slot: left-nav}
   components:
   - name: selectRoExAEEA
-    properties: {text: Romania ExA &EEA}
+    properties: {text: Romania ExA &EEA, tooltip: Algorithm for exergy eval}
     type: Button
     layout_properties: {grid_position: 'DGOLVH,APVMRG'}
     event_bindings: {click: selectRoExAEEA_click}
   - name: selectDH
-    properties: {text: District Heating}
+    properties: {text: District Heating, role: null}
     type: Button
     layout_properties: {grid_position: 'FLYZGS,IRWHAQ'}
     event_bindings: {click: selectDH_click}
