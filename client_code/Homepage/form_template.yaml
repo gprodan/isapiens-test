@@ -63,3 +63,20 @@ components:
     type: Button
     layout_properties: {grid_position: 'EQJETD,JULTAW'}
     event_bindings: {click: selectRL_click}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'XCRCJV,QIJBDI'}
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'GDSHGL,AURYPJ'}
+  - name: file_loader_1
+    properties: {text: Categories, tooltip: Load simulation categories}
+    type: FileLoader
+    layout_properties: {grid_position: 'BWQMJC,ZOZSKQ'}
+    event_bindings: {change: file_loader_1_change}
+  - name: file_loader_2
+    properties: {text: Simulations, tooltip: Load simulations}
+    type: FileLoader
+    layout_properties: {grid_position: 'VGSTVI,GIXECP'}

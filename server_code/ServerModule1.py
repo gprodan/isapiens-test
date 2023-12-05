@@ -3,8 +3,35 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 from datetime import datetime
+import csv
 
+@anvil.server.callable
+def read_categories_from_csv(csv_string):
+  csv_list=csv_string.split()
+  cr=csv.reader(csv_list)
+    
+  for csv_line in cr:
+    try:
+      app_tables.categories.add_row(name=csv_line[0], description=csv_line[1])
+    except:
+      pass
 
+@anvil.server.callable
+def read_entries_from_csv(csv_string):
+  csv_list=csv_string.split()
+  cr=csv.reader(csv_list)
+    
+  for csv_line in cr:
+     try: 
+      app_tables.categories.add_row(title=csv_line[0], 
+                                  content=csv_line[1], 
+                                  created=csv_line[2], 
+                                  updated=csv_line[3], 
+                                  category=csv_line[4], result=csv_line[5])
+     except:
+       pass
+
+      
 @anvil.server.callable
 def add_entry(entry_dict):
   app_tables.entries.add_row(
