@@ -72,17 +72,17 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'GDSHGL,AURYPJ'}
   - name: file_loader_1
-    properties: {text: Categories, tooltip: Load simulation categories}
+    properties: {text: Categories, tooltip: Load simulation categories, enabled: false}
     type: FileLoader
     layout_properties: {grid_position: 'BWQMJC,ZOZSKQ'}
     event_bindings: {change: file_loader_1_change}
   - name: file_loader_2
-    properties: {text: Simulations, tooltip: Load simulations}
+    properties: {text: Simulations, tooltip: Load simulations, enabled: false}
     type: FileLoader
     layout_properties: {grid_position: 'VGSTVI,GIXECP'}
     event_bindings: {change: file_loader_2_change}
   - name: btnInitDBs
-    properties: {text: InitDBs}
+    properties: {text: InitDBs, enabled: false}
     type: Button
     layout_properties: {grid_position: 'ZECQRD,PVTDCB'}
     event_bindings: {click: btnInitDBs_click}

@@ -3,8 +3,8 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 from datetime import datetime
-import csv
-import pandas as pd
+# import csv
+# import pandas as pd
 
 @anvil.server.callable
 def read_categories_from_csv(csv_string):
