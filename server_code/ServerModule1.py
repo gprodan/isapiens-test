@@ -42,8 +42,8 @@ def add_entry(entry_dict):
 
 @anvil.server.callable
 def init_dbs():
-  import_csv_data("categories.csv")
-  import_csv_data("entries.csv")
+  import_csv_data("./categories.csv")
+  import_csv_data("./entries.csv")
 
 def import_csv_data(file):
   with open(file, "r") as f:
