@@ -60,7 +60,7 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''content'']'}
   - name: results
-    properties: {}
+    properties: {height: 212}
     type: TextArea
     layout_properties: {grid_position: 'MHWRRD,XGUAPS HJGZPT,MZAJFR'}
     data_bindings:
