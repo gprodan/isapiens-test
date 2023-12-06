@@ -42,17 +42,18 @@ def add_entry(entry_dict):
 
 @anvil.server.callable
 def init_dbs():
-  import_csv_data("categories.csv")
-  import_csv_data("entries.csv")
+  import_csv_data("categories.csv", app_tables.categories)
+  import_csv_data("entries.csv", app_tables.entries)
 
-def import_csv_data(file):
+def import_csv_data(file, table):
   with open(file, "r") as f:
     df = pd.read_csv(f)
     for d in df.to_dict(orient="records"):
       # d is now a dict of {columnname -> value} for this row
       # We use Python's **kwargs syntax to pass the whole dict as
       # keyword arguments
-      app_tables.your_table_name_here.add_row(**d)
+      
+      table.add_row(**d)
 
 @anvil.server.callable
 def get_entries():
