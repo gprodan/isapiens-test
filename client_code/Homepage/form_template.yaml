@@ -81,3 +81,8 @@ components:
     type: FileLoader
     layout_properties: {grid_position: 'VGSTVI,GIXECP'}
     event_bindings: {change: file_loader_2_change}
+  - name: btnInitDBs
+    properties: {text: InitDBs}
+    type: Button
+    layout_properties: {grid_position: 'ZECQRD,PVTDCB'}
+    event_bindings: {click: btnInitDBs_click}

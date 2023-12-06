@@ -4,6 +4,7 @@ from anvil.tables import app_tables
 import anvil.server
 from datetime import datetime
 import csv
+import pandas as pd
 
 @anvil.server.callable
 def read_categories_from_csv(csv_string):
@@ -38,6 +39,20 @@ def add_entry(entry_dict):
     created=datetime.now(),
     **entry_dict
   )
+
+@anvil.server.callable
+def init_dbs():
+  import_csv_data("categories.csv")
+  import_csv_data("entries.csv")
+
+def import_csv_data(file):
+  with open(file, "r") as f:
+    df = pd.read_csv(f)
+    for d in df.to_dict(orient="records"):
+      # d is now a dict of {columnname -> value} for this row
+      # We use Python's **kwargs syntax to pass the whole dict as
+      # keyword arguments
+      app_tables.your_table_name_here.add_row(**d)
 
 @anvil.server.callable
 def get_entries():

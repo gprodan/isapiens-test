@@ -140,3 +140,7 @@ class Homepage(HomepageTemplate):
     filedata=file.get_bytes()
     anvil.server.call('read_entries_from_csv',filedata.decode())
 
+  def btnInitDBs_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    anvil.server.call('init_dbs')
+
