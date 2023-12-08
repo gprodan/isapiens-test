@@ -33,7 +33,7 @@ class WPForm(WPFormTemplate):
       pr['m'] = self.txtMassFlow.text if self.txtMassFlow.text else [10.0,15.0,30.0]
       params = json.dumps(pr, indent = 4)
     self.item['title'] = self.txtTitle.text
-    self.item['content'] = params
+    self.item['content'] = str(params)
     res = anvil.server.call('calculate_waterpumping', params=params)
     self.item['result'] = res
     self.results.text = res

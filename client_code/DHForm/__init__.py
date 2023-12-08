@@ -32,7 +32,7 @@ class DHForm(DHFormTemplate):
       pr['A'] = self.txtUsersArea.text if self.txtUsersArea.text else [3000.0, 2000.0, 12000.0]
       params = json.dumps(pr, indent = 4)
     self.item['title'] = self.txtTitle.text
-    self.item['content'] = params
+    self.item['content'] = str(params)
     res = anvil.server.call('calculate_districtheating', params=params)
     self.item['result'] = res
     self.results.text = res

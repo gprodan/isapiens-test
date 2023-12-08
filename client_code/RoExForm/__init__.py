@@ -34,7 +34,7 @@ class RoExForm(RoExFormTemplate):
       pr['M2'] = float(self.txtM2Coef.text if self.txtM2Coef.text else 422691000000.0)
       params = json.dumps(pr, indent = 4)
     self.item['title'] = self.txtTitle.text
-    self.item['content'] = params
+    self.item['content'] = str(params)
     res = anvil.server.call('calculate_roexaeea', params=params)
     self.item['result'] = res
     self.results.text = res

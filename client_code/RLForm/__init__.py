@@ -35,7 +35,7 @@ class RLForm(RLFormTemplate):
       pr['ntrips'] = float(self.txtNoTrips.text if self.txtNoTrips.text else 60)
       params = json.dumps(pr, indent = 4)
     self.item['title'] = self.txtTitle.text
-    self.item['content'] = params
+    self.item['content'] = str(params)
     res = anvil.server.call('calculate_railroad', params=params)
     self.item['result'] = res
     self.results.text = res
