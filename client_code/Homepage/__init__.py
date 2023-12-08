@@ -143,4 +143,5 @@ class Homepage(HomepageTemplate):
   def btnInitDBs_click(self, **event_args):
     """This method is called when the button is clicked"""
     anvil.server.call('init_dbs')
+    self.btnInitDBs.enabled = False
 
