@@ -3,13 +3,14 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import json
+#from rlokt_wrapper_local import evaluate_rl_local
 
 @anvil.server.callable
 def calculate_railroad(params):
-   #print(f"Params: {params}")
-   par = json.loads(params)
-   return evaluate_rl(par)
-
+  #print(f"Params: {params}")
+  par = json.loads(params)
+  #return evaluate_rl_local(par)
+  return evaluate_rl(par)
 
 def evaluate_rl(par):
   res = f"Response for : {par['title']}\n"

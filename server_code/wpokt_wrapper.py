@@ -3,12 +3,14 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import json 
+#from wpokt_wrapper_local import evaluate_wp_local
 
 @anvil.server.callable
 def calculate_waterpumping(params):
-   #print(f"Params: {params}")
-   par = json.loads(params)
-   return evaluate_wp(par)
+  #print(f"Params: {params}")
+  par = json.loads(params)
+  #return evaluate_wp_local(par)
+  return evaluate_wp(par)
 
 
 def evaluate_wp(par):

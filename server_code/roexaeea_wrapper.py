@@ -3,6 +3,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import json
+#from roexaeea_wrapper_local import evaluate_roexeea_local
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -16,14 +17,22 @@ def title():
    return 'Romania ExA & EEA'
 
 @anvil.server.callable
+def sections():
+   return 8
+
+@anvil.server.callable
+def title():
+  return 'Romania ExA & EEA'
+
+@anvil.server.callable
 def calculate_roexaeea(params):
-   #print(f"Params: {params}")
-   par = json.loads(params)
+  #print(f"Params: {params}")
+  par = json.loads(params)
   
-   return evaluate_dh(par)
+  # return evaluate_roexeea_local(par)
+  return evaluate_roexeea(par)
 
-
-def evaluate_dh(par):
+def evaluate_roexeea(par):
   res = f"Response for : {par['title']}\n"
   res = res + f"Input parameters: \n"
   res = res + f"Nw = {par['Nw']} \n"
