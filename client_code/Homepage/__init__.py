@@ -92,7 +92,7 @@ class Homepage(HomepageTemplate):
     for x in [self.selectDH, self.selectRL, self.selectWP]:
       x.role = ""
     self.selectRoExAEEA.role = "outlined-button"
-    self.text_area_1.text = anvil.server.call('get_ExA_description')
+    self.text_area_1.text = app_tables.categories.get(name='roexaeea')['description'] #anvil.server.call('get_ExA_description')
     self.entries_panel.items = anvil.server.call('get_ExA_entries')
     self.job = "RoExAEEA"
     self.add_entry_button.enabled = True
@@ -104,6 +104,7 @@ class Homepage(HomepageTemplate):
     for x in [self.selectDH, self.selectRoExAEEA, self.selectWP]:
       x.role = ""
     self.selectRL.role = "outlined-button"
+    self.text_area_1.text = app_tables.categories.get(name='railroad')['description']
     self.entries_panel.items = anvil.server.call('get_RL_entries')
     self.job = "RailRoad"
     self.add_entry_button.enabled = True
@@ -113,6 +114,7 @@ class Homepage(HomepageTemplate):
     for x in [self.selectRL, self.selectRoExAEEA, self.selectWP]:
       x.role = ""
     self.selectDH.role = "outlined-button"
+    self.text_area_1.text = app_tables.categories.get(name='districtheating')['description']
     self.entries_panel.items = anvil.server.call('get_DH_entries')
     self.job = "DistrictHeating"
     self.add_entry_button.enabled = True
@@ -122,6 +124,7 @@ class Homepage(HomepageTemplate):
     for x in [self.selectRL, self.selectRoExAEEA, self.selectDH]:
       x.role = ""
     self.selectWP.role = "outlined-button"
+    self.text_area_1.text = app_tables.categories.get(name='waterpumping')['description']
     self.entries_panel.items = anvil.server.call('get_WP_entries')
     self.job = "WaterPumping"
     self.add_entry_button.enabled = True
