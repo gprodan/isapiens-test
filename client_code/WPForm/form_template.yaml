@@ -84,3 +84,4 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''result'']', writeback: false}
 is_package: true
+data_bindings: []
