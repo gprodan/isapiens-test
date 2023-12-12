@@ -129,10 +129,6 @@ class Homepage(HomepageTemplate):
     self.job = "WaterPumping"
     self.add_entry_button.enabled = True
 
-  def btnInitDB_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
-
   def file_loader_1_change(self, file, **event_args):
     """This method is called when a new file is loaded into this FileLoader"""
     filedata=file.get_bytes()
