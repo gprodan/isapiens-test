@@ -75,17 +75,32 @@ def get_ExA_entries():
   )
 
 @anvil.server.callable
+def get_DH_description():
+  # Get a list of entries from the Data Table, sorted by 'created' column, in descending order
+  return app_tables.categories.get(name='districtheating')['description']
+  
+@anvil.server.callable
 def get_DH_entries():
   return app_tables.entries.search(
     category=app_tables.categories.get(name='districtheating')
   )
 
 @anvil.server.callable
+def get_WP_description():
+  # Get a list of entries from the Data Table, sorted by 'created' column, in descending order
+  return app_tables.categories.get(name='waterpumping')['description']
+  
+@anvil.server.callable
 def get_WP_entries():
   return app_tables.entries.search(
     category=app_tables.categories.get(name='waterpumping')
   )
 
+@anvil.server.callable
+def get_RL_description():
+  # Get a list of entries from the Data Table, sorted by 'created' column, in descending order
+  return app_tables.categories.get(name='railroad')['description']
+  
 @anvil.server.callable
 def get_RL_entries():
   return app_tables.entries.search(
