@@ -28,9 +28,9 @@ class WPForm(WPFormTemplate):
     else:
       pr['title'] = self.txtTitle.text
       pr['T0'] = float(self.txtTempAmb.text if self.txtTempAmb.text else 300.0)
-      pr['L0'] = self.txtLengths.text if self.txtLengths.text else [500.0,300.0,1000.0]
-      pr['L'] = self.txtLengthsP.text if self.txtLengthsP.text else [200.0,400.0,600.0]
-      pr['m'] = self.txtMassFlow.text if self.txtMassFlow.text else [10.0,15.0,30.0]
+      pr['L0'] = self.txtLengths.text if self.txtLengths.text else "[500.0,300.0,1000.0]"
+      pr['L'] = self.txtLengthsP.text if self.txtLengthsP.text else "[200.0,400.0,600.0]"
+      pr['m'] = self.txtMassFlow.text if self.txtMassFlow.text else "[10.0,15.0,30.0]"
       params = json.dumps(pr, indent = 4)
     self.item['title'] = self.txtTitle.text
     self.item['content'] = str(params)
