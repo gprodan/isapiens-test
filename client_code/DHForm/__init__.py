@@ -29,7 +29,7 @@ class DHForm(DHFormTemplate):
       pr['title'] = self.txtTitle.text
       pr['T0'] = float(self.txtTempAmb.text if self.txtTempAmb.text else 300.0)
       pr['L'] = self.txtLengths.text if self.txtLengths.text else "[1000.0, 2000.0, 3000.0]"
-      pr['Z'] = self.txtUsersArea.text if self.txtUsersArea.text else "[3000.0, 2000.0, 12000.0]"
+      pr['Z'] = self.txtUsersArea.text if self.txtUsersArea.text else "[5, 10, 15]"
       params = json.dumps(pr, indent = 4)
     self.item['title'] = self.txtTitle.text
     self.item['content'] = str(params)
