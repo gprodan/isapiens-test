@@ -30,8 +30,8 @@ class RLForm(RLFormTemplate):
       pr['cfuel'] = float(self.txtFuelCost.text if self.txtFuelCost.text else 1.7)
       pr['cel'] = float(self.txtElCost.text if self.txtElCost.text else 0.17)
       pr['ntracks'] = float(self.txtNoTracks.text if self.txtNoTracks.text else 3)
-      pr['mLoad'] = self.txtMassLoad.text if self.txtMassLoad else [2500,3000.0,2500.0]
-      pr['L'] = self.txtRouteLength.text if self.txtRouteLength else [150.0,180.0,230.0]
+      pr['mLoad'] = self.txtMassLoad.text if self.txtMassLoad.text else "[2500,3000.0,2500.0]"
+      pr['L'] = self.txtRouteLength.text if self.txtRouteLength.text else "[150.0,180.0,230.0]"
       pr['ntrips'] = float(self.txtNoTrips.text if self.txtNoTrips.text else 60)
       params = json.dumps(pr, indent = 4)
     self.item['title'] = self.txtTitle.text
