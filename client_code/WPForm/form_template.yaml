@@ -63,7 +63,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'UBKQHV,DXJBKI'}
   - name: txtFormated
-    properties: {placeholder: 'ex.  {"title":"simWP","T0":300, "L0":[500.0,300.0,1000.0],"L":[200.0,400.0,600.0],"m":[10.0,15.0,30.0]}'}
+    properties: {placeholder: 'ex.  {"title":"simWP","T0":300, "L0":"[500.0,300.0,1000.0]","L":"[200.0,400.0,600.0]","m":"[10.0,15.0,30.0]"}'}
     type: TextBox
     layout_properties: {grid_position: 'UBKQHV,OQXEOJ'}
   - name: sendParams
