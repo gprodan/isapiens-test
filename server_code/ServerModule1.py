@@ -52,7 +52,8 @@ def import_csv_data(file, table):
       # d is now a dict of {columnname -> value} for this row
       # We use Python's **kwargs syntax to pass the whole dict as
       # keyword arguments
-      
+      d['created'] = datetime(d['created'])
+      d['updated'] = datetime(d['updated'])
       table.add_row(**d)
 
 @anvil.server.callable
